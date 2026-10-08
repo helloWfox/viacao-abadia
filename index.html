@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Viação Universitária — Protótipo</title>
+  <meta name="description" content="Protótipo de sistema de gestão de alunos, ônibus e mensalidades para transporte universitário." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== TELA DE LOGIN / SELEÇÃO DE PERFIL ===================== -->
+  <section class="screen screen-login" id="screenLogin">
+    <div class="login-brand">
+      <span class="login-brand-icon" aria-hidden="true">🚌</span>
+      <div class="login-brand-text">
+        <h1>Viação N. Sra. D'Abadia</h1>
+        <p>Sistema de Viação Universitária</p>
+      </div>
+    </div>
+
+    <span class="login-badge">Protótipo de demonstração</span>
+
+    <div class="login-card">
+      <h2>Entrar no sistema</h2>
+      <p>Escolha um perfil para ver como fica a experiência de cada tipo de usuário.</p>
+
+      <div class="role-list">
+        <button type="button" class="role-btn" data-role="admin">
+          <span class="role-icon" aria-hidden="true">🛠️</span>
+          <span class="role-btn-text">
+            <strong>Administrador</strong>
+            <span>Gerencia alunos, ônibus, pontos e financeiro</span>
+          </span>
+        </button>
+
+        <button type="button" class="role-btn" data-role="aluno">
+          <span class="role-icon" aria-hidden="true">🎓</span>
+          <span class="role-btn-text">
+            <strong>Aluno</strong>
+            <span>Consulta dados, mensalidades e transporte</span>
+          </span>
+        </button>
+
+        <button type="button" class="role-btn" data-role="financeiro">
+          <span class="role-icon" aria-hidden="true">💳</span>
+          <span class="role-btn-text">
+            <strong>Financeiro</strong>
+            <span>Controla mensalidades, pagamentos e relatórios</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="aluno-picker" id="alunoPicker" hidden>
+        <label for="alunoSelect">Entrar como qual aluno (demonstração)?</label>
+        <div class="field-row">
+          <select id="alunoSelect"></select>
+          <button type="button" class="btn btn-aluno" id="alunoEntrarBtn">Entrar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== APP (SIDEBAR + CONTEÚDO) ===================== -->
+  <div class="app" id="app" hidden>
+    <div class="sidebar-overlay" id="sidebarOverlay" hidden></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <span class="sidebar-brand-icon" aria-hidden="true">🚌</span>
+        <div class="sidebar-brand-text">
+          <strong>Viação N. Sra. D'Abadia</strong>
+          <span>Sistema de Viação Universitária</span>
+        </div>
+      </div>
+
+      <div class="sidebar-role">
+        <div class="sidebar-role-label" id="sidebarRoleLabel">Perfil</div>
+        <div class="sidebar-role-name" id="sidebarRoleName">—</div>
+      </div>
+
+      <nav class="sidebar-nav" id="sidebarNav" aria-label="Navegação do sistema"></nav>
+
+      <div class="sidebar-footer">
+        <button type="button" class="sidebar-logout" id="logoutBtn">
+          <span class="sidebar-nav-icon" aria-hidden="true">↩</span>
+          <span>Sair / trocar perfil</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+        <h1 id="pageTitle">Visão geral</h1>
+        <div class="topbar-user">
+          <span class="topbar-user-name" id="topbarUserName"></span>
+          <span class="topbar-role-pill" id="topbarRolePill"></span>
+        </div>
+      </header>
+
+      <main class="content" id="content"></main>
+    </div>
+  </div>
+
+  <!-- ===================== MODAL GENÉRICO ===================== -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" id="modal"></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
